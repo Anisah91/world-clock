@@ -1,6 +1,7 @@
 // Doha Time
 
-function updateDohaTime() {
+function updateTime() {
+  //Doha
   let dohaElement = document.querySelector("#doha");
   if (dohaElement) {
     let dohaDateElement = document.querySelector("#doha .date");
@@ -13,29 +14,26 @@ function updateDohaTime() {
   }
 }
 
-updateDohaTime();
-setInterval(updateDohaTime, 1000);
-
 // Gaza Time
-function updateGazaTime() {
-  let gazaElement = document.querySelector("#gaza");
-  if (gazaElement) {
-    let gazaDateElement = document.querySelector("#gaza .date");
-    let gazaTime = moment().tz("Asia/Gaza");
-    let gazaTimeElement = document.querySelector("#gaza .time");
-    gazaTimeElement.innerHTML = gazaTime.format(
-      "h:mm:ss[<small>] A [</small>]"
-    );
-    gazaDateElement.innerHTML = gazaTime.format("MMMM Do YYYY");
-  }
+
+let gazaElement = document.querySelector("#gaza");
+if (gazaElement) {
+  let gazaDateElement = document.querySelector("#gaza .date");
+  let gazaTime = moment().tz("Asia/Gaza");
+  let gazaTimeElement = document.querySelector("#gaza .time");
+  gazaTimeElement.innerHTML = gazaTime.format("h:mm:ss[<small>] A [</small>]");
+  gazaDateElement.innerHTML = gazaTime.format("MMMM Do YYYY");
 }
-updateGazaTime();
-setInterval(updateGazaTime, 1000);
 
 function updateCity(event) {
   let cityTimeZone = event.target.value;
-  let cityName = cityTimeZone.replace("/", " ").split("/")[1];
+
+  if (cityTimeZone === "current") {
+    cityTimeZone = moment.tz.guess();
+  }
+  let cityName = cityTimeZone.replace("_", " ").split("/")[1];
   let cityTime = moment().tz(cityTimeZone);
+
   let citiesElement = document.querySelector("#cities");
   citiesElement.innerHTML = `<div class="city" >
         <div>
@@ -46,7 +44,7 @@ function updateCity(event) {
     " A "
   )}</small>
         </div>
-      </div>`;
+      </div> <a href "/"> Back to Homepage 🌍 </a>`;
 }
 
 let citiesSelectElement = document.querySelector("#city");
