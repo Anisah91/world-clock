@@ -16,6 +16,9 @@ h2 {
   line-height: 2;
 }
 
+#imgs {
+  height: 12%;
+}
 select {
   display: block;
   width: 100%;
