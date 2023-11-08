@@ -1,5 +1,3 @@
-// Doha Time
-
 function updateTime() {
   //Doha
   let dohaElement = document.querySelector("#doha");
@@ -12,17 +10,30 @@ function updateTime() {
     );
     dohaDateElement.innerHTML = dohaTime.format("MMMM Do YYYY");
   }
-}
 
-// Gaza Time
+  // Seoul
+  let seoulElement = document.querySelector("#seoul");
+  if (seoulElement) {
+    let seoulDateElement = document.querySelector("#seoul .date");
+    let seoulTime = moment().tz("Asia/Seoul");
+    let seoulTimeElement = document.querySelector("#seoul .time");
+    seoulTimeElement.innerHTML = seoulTime.format(
+      "h:mm:ss [<small>] A [</small>]"
+    );
+    seoulDateElement.innerHTML = seoulTime.format("MMMM Do YYYY");
+  }
+  // Gaza
 
-let gazaElement = document.querySelector("#gaza");
-if (gazaElement) {
-  let gazaDateElement = document.querySelector("#gaza .date");
-  let gazaTime = moment().tz("Asia/Gaza");
-  let gazaTimeElement = document.querySelector("#gaza .time");
-  gazaTimeElement.innerHTML = gazaTime.format("h:mm:ss[<small>] A [</small>]");
-  gazaDateElement.innerHTML = gazaTime.format("MMMM Do YYYY");
+  let gazaElement = document.querySelector("#gaza");
+  if (gazaElement) {
+    let gazaDateElement = document.querySelector("#gaza .date");
+    let gazaTime = moment().tz("Asia/Gaza");
+    let gazaTimeElement = document.querySelector("#gaza .time");
+    gazaTimeElement.innerHTML = gazaTime.format(
+      "h:mm:ss[<small>] A [</small>]"
+    );
+    gazaDateElement.innerHTML = gazaTime.format("MMMM Do YYYY");
+  }
 }
 
 function updateCity(event) {
@@ -37,7 +48,7 @@ function updateCity(event) {
   let citiesElement = document.querySelector("#cities");
   citiesElement.innerHTML = `<div class="city" >
         <div>
-          <h2>${cityTimeZone}</h2>
+          <h2>${cityName}</h2>
           <div class="date">${cityTime.format("MMMM Do YYYY")}</div>
         </div>
         <div class="time">${cityTime.format("h:mm:ss")}<small>${cityTime.format(

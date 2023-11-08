@@ -1,6 +1,8 @@
 body {
   background-color: #cddde8;
   font-family: sans-serif;
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/102/029/original/WhatsApp_Image_2023-10-26_at_12.21.46-removebg-preview.png?1698344566");
+  background-size: 60%;
 }
 
 h1 {
@@ -24,14 +26,16 @@ select {
 }
 
 .container {
-  background-color: aliceblue;
+  background-color: #ddedf0;
   color: ffff;
-  max-width: 600px;
-  margin: 50px auto;
+  max-width: 580px;
+  margin: 45px auto;
   padding: 20px;
   border-radius: 25px;
-
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: 11px 11px 46px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 11px 11px 46px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 11px 11px 46px 0px rgba(0, 0, 0, 0.75);
+  opacity: 73%;
 }
 .city {
   display: flex;
@@ -55,11 +59,15 @@ select {
   line-height: 34px;
 }
 .date {
-  opacity: 0.6;
+  opacity: 0.9;
 }
 
 footer {
   text-align: center;
-  font-size: 16px;
-  color: rgba(0, 0, 0, 0.6);
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.8);
+}
+footer:hover {
+  background-color: #ddedf0;
+  transition: all 200ms ease-in-out;
 }
